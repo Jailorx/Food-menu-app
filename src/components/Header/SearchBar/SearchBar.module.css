@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  background-color: rgb(226, 226, 231);
+  padding: 8px;
+  margin-right: 10px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.input {
+  border: none;
+  background-color: transparent;
+  width: -webkit-fill-available;
+}
+.input:focus {
+  outline: none;
+}
