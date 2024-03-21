@@ -1,5 +1,6 @@
 import searchIcon from "../../../assets/search-icon.svg";
 import styles from "./SearchBar.module.css";
+import { useState } from "react";
 
 const SearchBar = () => {
   return (

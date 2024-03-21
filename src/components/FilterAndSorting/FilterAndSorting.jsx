@@ -43,7 +43,7 @@ const FilterAndSorting = () => {
         "https://www.themealdb.com/api/json/v1/1/list.php?a=list"
       );
       const data = await response.json();
-      console.log(data.meals);
+      // console.log(data.meals);
       setAreas(data.meals);
     };
 
