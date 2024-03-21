@@ -38,10 +38,11 @@ const FilterAndSorting = () => {
       }
       return 0; // Names are equal
     });
-    console.log(sortedList);
+    // console.log(sortedList);
     setItemList(sortedList);
   };
 
+  //applying filtering
   const applyFiltering = () => {
     setIsDropdownOpen((prev) => !prev);
     const fetchData = async () => {
@@ -55,6 +56,7 @@ const FilterAndSorting = () => {
     fetchData();
   };
 
+  //fetching list of all available areas
   useEffect(() => {
     const fetchAreas = async () => {
       const response = await fetch(

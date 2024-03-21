@@ -1,4 +1,4 @@
-import websitelogo from "../../../assets/Swiggy_logo.svg";
+import websitelogo from "../../../assets/swiggy-logo.svg";
 
 const Logo = () => {
   // Swiggy logo

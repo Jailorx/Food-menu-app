@@ -8,12 +8,12 @@ const Card = ({ meal }) => {
   const [rating, setRating] = useState(5.0); //initial review rating for all meals
   const [modalVisible, setModalVisible] = useState(false); //stores modal state
 
-  //used for opening modal
+  //Event handlers for opening modal
   const handleCardClick = () => {
     setModalVisible(true);
   };
 
-  //used for closing modal
+  //Event handlers for closing modal
   const handleCloseModal = () => {
     setModalVisible(false);
   };

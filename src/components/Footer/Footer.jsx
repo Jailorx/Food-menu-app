@@ -1,5 +1,5 @@
 import styles from "./Footer.module.css";
-import Logo from "../../assets/footer_swiggy_logo.svg";
+import Logo from "../../assets/footer-swiggy-logo.svg";
 
 const Footer = () => {
   return (
