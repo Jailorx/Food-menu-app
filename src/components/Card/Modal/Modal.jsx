@@ -13,7 +13,7 @@ const Modal = ({ id, onClose }) => {
   const fetchMealData = async () => {
     const response = await fetch(`${baseUrl}${id}`);
     const data = await response.json();
-    console.log(data.meals[0]);
+    // console.log(data.meals[0]);
     setMeal(data.meals[0]);
   };
 
