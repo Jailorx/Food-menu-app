@@ -6,6 +6,8 @@ import { useData } from "../../context/FoodList.context";
 
 const FoodItemsGrid = () => {
   const { itemList, setItemList } = useData();
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 12;
 
   const fetchData = async () => {
     const response = await fetch(
@@ -15,17 +17,47 @@ const FoodItemsGrid = () => {
     setItemList(data.meals);
   };
 
+  const lastItem = currentPage * itemsPerPage;
+  const firstItem = lastItem - itemsPerPage;
+  const currentItems = itemList.slice(firstItem, lastItem);
+
+  const nextPage = () => {
+    setCurrentPage((prev) => prev + 1);
+  };
+  const prevPage = () => {
+    setCurrentPage((prev) => prev - 1);
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.grid}>
-        {itemList.length > 0 &&
-          itemList.map((meal) => <Card key={meal.idMeal} meal={meal} />)}
+    <>
+      <div className={styles.container}>
+        <div className={styles.grid}>
+          {currentItems.length > 0 &&
+            currentItems.map((meal) => <Card key={meal.idMeal} meal={meal} />)}
+        </div>
       </div>
-    </div>
+      <div className={styles.pagination}>
+        <button
+          className={styles.btns}
+          onClick={prevPage}
+          disabled={currentPage === 1}
+        >
+          Prev
+        </button>
+        <span>{currentPage}</span>
+        <button
+          className={styles.btns}
+          onClick={nextPage}
+          disabled={itemList.length <= 12}
+        >
+          Next
+        </button>
+      </div>
+    </>
   );
 };
 
