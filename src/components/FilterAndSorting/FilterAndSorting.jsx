@@ -24,6 +24,19 @@ const FilterAndSorting = () => {
     setItemList(sortedList);
   };
 
+  const applyFiltering = () => {
+    setIsDropdownOpen((prev) => !prev);
+    const fetchData = async () => {
+      const response = await fetch(
+        `https://www.themealdb.com/api/json/v1/1/filter.php?a=${selectedArea}`
+      );
+      const data = await response.json();
+      setItemList(data.meals);
+    };
+
+    fetchData();
+  };
+
   useEffect(() => {
     const fetchAreas = async () => {
       const response = await fetch(
@@ -42,7 +55,11 @@ const FilterAndSorting = () => {
       <div className={styles.container}>
         {isDropdownOpen ? (
           <div className={styles.dropdown}>
-            <select onChange={handleSelectedArea} value={selectedArea}>
+            <select
+              className={styles.list}
+              onChange={handleSelectedArea}
+              value={selectedArea}
+            >
               <option value="">Select Area</option>
               {areas.map((area) => (
                 <option key={area.strArea} value={area.strArea}>
@@ -50,7 +67,9 @@ const FilterAndSorting = () => {
                 </option>
               ))}
             </select>
-            <button onClick={handleFiltering}>Apply</button>
+            <button className={styles.apply} onClick={applyFiltering}>
+              Apply
+            </button>
           </div>
         ) : (
           <Button label="Filter" icon={filterIcon} onClick={handleFiltering} />

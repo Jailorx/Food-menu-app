@@ -2,3 +2,29 @@
   margin-top: 10px;
   display: flex;
 }
+
+.dropdown {
+  margin: 10px;
+  display: inline-block;
+  position: relative;
+}
+
+.list {
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 20px;
+  color: gray;
+  cursor: pointer;
+}
+
+.list:focus {
+  outline: none;
+}
+
+.apply {
+  margin-left: 5px;
+  padding: 5px;
+  border: 2px solid #fc8019;
+  border-radius: 5px;
+  color: #fc8019;
+}
