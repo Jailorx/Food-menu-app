@@ -51,7 +51,7 @@ const FoodItemsGrid = () => {
         <button
           className={styles.btns}
           onClick={nextPage}
-          disabled={itemList.length <= 12}
+          disabled={Math.ceil(itemList.length / 12) <= currentPage}
         >
           Next
         </button>

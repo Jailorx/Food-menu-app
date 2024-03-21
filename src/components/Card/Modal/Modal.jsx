@@ -5,19 +5,18 @@ import YoutubeIcon from "../../../assets/youtube-icon.svg";
 import BlogIcon from "../../../assets/blog-icon.svg";
 
 const Modal = ({ id, onClose }) => {
-  const [meal, setMeal] = useState({});
+  const [meal, setMeal] = useState({}); //used for storing clicked meal info
   const [baseUrl, setBaseUrl] = useState(
     "https://www.themealdb.com/api/json/v1/1/lookup.php?i="
-  );
+  ); // setting base url for fetching meal info
 
-  const fetchMealData = async () => {
-    const response = await fetch(`${baseUrl}${id}`);
-    const data = await response.json();
-    // console.log(data.meals[0]);
-    setMeal(data.meals[0]);
-  };
-
+  //fetchMealData is called wherever Modal gets mounted
   useEffect(() => {
+    const fetchMealData = async () => {
+      const response = await fetch(`${baseUrl}${id}`);
+      const data = await response.json();
+      setMeal(data.meals[0]);
+    };
     fetchMealData(id);
   }, []);
   return ReactDOM.createPortal(
