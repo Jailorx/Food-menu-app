@@ -1,0 +1,15 @@
+.container {
+  margin: 20px;
+  /* background-color: pink; */
+  display: flex;
+  justify-content: center;
+}
+
+.grid {
+  max-width: 80%;
+  padding: 10px;
+  /* background-color: yellow; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}

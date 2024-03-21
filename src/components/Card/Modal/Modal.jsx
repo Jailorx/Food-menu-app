@@ -2,7 +2,6 @@ import ReactDOM from "react-dom";
 import styles from "./Modal.module.css";
 
 const Modal = ({ onClose }) => {
-  console.log("Modal working");
   return ReactDOM.createPortal(
     <div className={styles.modalOverlay} onClick={onClose}>
       <div className={styles.modal}>

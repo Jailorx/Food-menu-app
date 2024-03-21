@@ -1,17 +1,17 @@
 import styles from "./Card.module.css";
 import ratingIcon from "../../assets/rating.svg";
+import { useState } from "react";
 
-const Card = ({ onClick }) => {
+const Card = ({ meal, onClick }) => {
+  const [mealData, setMealData] = useState(meal);
+
   return (
     <div className={styles.card} onClick={onClick}>
       <div className={styles.thumbnail}>
-        <img
-          src="https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg"
-          alt="thumbnail"
-        />
+        <img src={mealData.strMealThumb} alt="thumbnail" />
       </div>
       <div className={styles.name}>
-        <p>Chizi</p>
+        <p>{mealData.strMeal}</p>
       </div>
       <div className={styles.rating}>
         <img src={ratingIcon} alt="rating_icon" />
