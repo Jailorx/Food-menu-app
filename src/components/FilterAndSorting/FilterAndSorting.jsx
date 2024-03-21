@@ -6,21 +6,39 @@ import { useData } from "../../context/FoodList.context";
 import { useState, useEffect } from "react";
 
 const FilterAndSorting = () => {
+  // Accessing data from context
   const { itemList, setItemList } = useData();
   const [areas, setAreas] = useState([]);
   const [selectedArea, setSelectedArea] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
+  // Event handler for selecting area
   const handleSelectedArea = (event) => {
     setSelectedArea(event.target.value);
   };
 
+  // Event handler for toggling dropdown
   const handleFiltering = () => {
     setIsDropdownOpen((prev) => !prev);
   };
 
+  // Event handler for sorting alphabetically
   const handleSortingAlphabetically = () => {
-    const sortedList = [...itemList].sort();
+    const sortedList = [...itemList].sort((a, b) => {
+      // Convert both names to lowercase for case-insensitive comparison
+      const nameA = a.strMeal.toLowerCase();
+      const nameB = b.strMeal.toLowerCase();
+
+      // Compare the names
+      if (nameA < nameB) {
+        return -1; // Name A comes before Name B
+      }
+      if (nameA > nameB) {
+        return 1; // Name A comes after Name B
+      }
+      return 0; // Names are equal
+    });
+    console.log(sortedList);
     setItemList(sortedList);
   };
 
