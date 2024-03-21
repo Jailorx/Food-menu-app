@@ -1,6 +1,9 @@
 .card {
   display: flex;
   flex-direction: column;
+  max-width: 250px;
+  overflow: hidden;
+
   transition: transform 0.3s ease;
 }
 
@@ -23,8 +26,12 @@
 .name {
   margin: 5px;
   padding-left: 5px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 800;
+  max-width: 70%;
+  overflow: hidden;
+  white-space: wrap;
+  text-overflow: ellipsis;
 }
 
 .rating {

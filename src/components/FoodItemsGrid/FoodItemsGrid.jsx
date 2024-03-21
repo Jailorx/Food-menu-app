@@ -9,14 +9,6 @@ const FoodItemsGrid = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
 
-  const fetchData = async () => {
-    const response = await fetch(
-      "https://www.themealdb.com/api/json/v1/1/filter.php?a=Indian"
-    );
-    const data = await response.json();
-    setItemList(data.meals);
-  };
-
   const lastItem = currentPage * itemsPerPage;
   const firstItem = lastItem - itemsPerPage;
   const currentItems = itemList.slice(firstItem, lastItem);
@@ -29,6 +21,13 @@ const FoodItemsGrid = () => {
   };
 
   useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(
+        "https://www.themealdb.com/api/json/v1/1/filter.php?a=Indian"
+      );
+      const data = await response.json();
+      setItemList(data.meals);
+    };
     fetchData();
   }, []);
 

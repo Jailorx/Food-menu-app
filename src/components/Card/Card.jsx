@@ -4,28 +4,29 @@ import { useState, useEffect } from "react";
 import Modal from "../Card/Modal/Modal";
 
 const Card = ({ meal }) => {
-  const [mealData, setMealData] = useState(meal);
-  const [rating, setRating] = useState(5.0);
-  const [modalVisible, setModalVisible] = useState(false);
+  const [mealData, setMealData] = useState(meal); //used for store meal object
+  const [rating, setRating] = useState(5.0); //initial review rating for all meals
+  const [modalVisible, setModalVisible] = useState(false); //stores modal state
 
-  function generateRandomRating() {
-    const random = Math.random();
-    const rating = random * (5.0 - 3.0) + 3.0;
-    // console.log(rating);
-    const randomRating = Math.round(rating * 10) / 10;
-
-    return randomRating;
-  }
-
+  //used for opening modal
   const handleCardClick = () => {
     setModalVisible(true);
   };
 
+  //used for closing modal
   const handleCloseModal = () => {
     setModalVisible(false);
   };
 
   useEffect(() => {
+    //used for generating random ratings
+    function generateRandomRating() {
+      const random = Math.random();
+      const rating = random * (5.0 - 3.0) + 3.0;
+      const randomRating = Math.round(rating * 10) / 10;
+
+      return randomRating;
+    }
     setRating(generateRandomRating());
   }, []);
 
