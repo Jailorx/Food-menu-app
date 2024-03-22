@@ -10,6 +10,10 @@ Project is deployed in vercel.
   https://food-menu-app-seven.vercel.app/
 ```
 
+## Demonstration
+
+- [Video demonstration of the working of food menu app](https://youtu.be/AsLXoLm_YaA)
+
 ## Tech Stack
 
 - React
